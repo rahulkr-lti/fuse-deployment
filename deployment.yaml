@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fuse-absatest
+  namespace: sumit
+spec:
+  selector:
+    matchLabels:
+      app: fuse-absatest
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: fuse-absatest
+    spec:
+      containers:
+        - name: fuse-absatest
+          image: image-registry.openshift-image-registry.svc:5000/sumit/july24final
+          ports:
+            - containerPort: 8046
+
+
